@@ -6,7 +6,7 @@
 * Physical make-up of a computer
 * Software layering
 * Networking
-2. Data representation I
+2. [Data representation I] (https://github.com/vonCount/HSE-Scientific-Computing-Course-Spring-2021/blob/main/Data%20Representation%20I.md)
 * Text encodings and Unicodes
 * Numerical representations
 * Simple data structures: lists, trees, graphs
