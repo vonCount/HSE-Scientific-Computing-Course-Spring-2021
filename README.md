@@ -1,8 +1,23 @@
 # Introduction to Scientific Computing 2021
 
 1. [Computer architecture I](https://github.com/vonCount/HSE-Scientific-Computing-Course-Spring-2021/blob/main/Computer%20Architecture%20I.md)
+* Computer architecture
+* Ideas of electronics
+* Physical make-up of a computer
+* Software layering
+* Networking
 2. Data representation I
+* Text encodings and Unicodes
+* Numerical representations
+* Simple data structures: lists, trees, graphs
+* Cryptographic ideas
 3. Interfaces I
+* Command-line and text interfaces.
+* Historical perspective.
+* Teletypes, shells, Read-Evaluate-Print Loops.
+* Basic *nix-style conventions for interaction.
+* Basics of shell scripting.
+* Processes and job control.
 4. Collaboration I
 5. Licensing
 6. Software design patterns
