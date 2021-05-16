@@ -23,3 +23,30 @@ Matrix is a new messaging and communication system being developed to replace IR
 Matrix is also an open protocol, and there are many different open-source clients and servers in development; there are also many projects to "bridge" with other chat systems. Matrix bridges exist for telegram, IRC, whatsapp, and others, allowing the Matrix user to connect to many different chat platforms.
 
 Exercise: together with a friend, try out the Riot.im web client. How does it compare to IRC? To Telegram?
+
+Exercise: Both Python and the Linux kernel have considered in the past moving from bugzilla- and e-mail-based systems to forges. Read both articles, and summarise the advantages and disadvantages of forge-based systems and e-mail, and the results of each.
+
+Continuous integration
+
+Modern large collaborative efforts usually involve many people working on different parts of the same project at the same time. Quality control tools are an essential part of ensuring that nobody forgets "best practices".
+
+The simplest can be "syntax checking": you can request that the entire project is run through a "syntax checker" to make sure there are no errors in the programming syntax.
+
+More sophisticated can be test suites which are developed in-concert with the project. Tests of small pieces of functionality are called "unit tests".
+
+If these quality control tools are never run, or are run inconsistently, the mistakes of one contributor can have a disproportionate effect on the project. Continuous integration systems are unattended systems that run tests on all pull requests and commits, and notify the submitters/committers when changes "break" something.
+
+Exercise: Suppose your project is not software. What kinds of quality control tests might you implement? Give examples for written articles, web sites, musical compositions, and graphics.
+
+Documentation
+
+Documentation comes in many forms, some more easily accessed or produced than others. Kinds you are probably already familiar with:
+
+man pages
+website documentation
+project wikis
+Other sources of documentation can be text files installed to /usr/share/docs, GNU info files (similar to man pages, run info <PROG> to view sometimes extensive documentation), or the source files themselves. Many projects include extensive documentation in PDF format (e.g. it is the standard in TeX).
+
+Production of these documents all use different toolchains (though of course, all source files are plaintext), many very complicated. Luckily there is the [pandoc] tool, which can convert between many many different types of documents.
+
+Exercise: install and run pandoc. (The dependencies are hefty.)
