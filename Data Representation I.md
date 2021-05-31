@@ -1,6 +1,6 @@
-Data representation I
+# Data representation I
 
-Exercise: Pretend we use a naïve floating-point format with 5bit mantissa and 3bit exponent (base-2). What is the smallest possible positive number representable? What is the largest positive number representable? The first bit of each is used for sign:
+**Exercise:** Pretend we use a naïve floating-point format with 5bit mantissa and 3bit exponent (base-2). What is the smallest possible positive number representable? What is the largest positive number representable? The first bit of each is used for sign:
 
 	[±****][±**]
 	 ^^^^^  ^^^--- exponent
@@ -16,7 +16,7 @@ In binary, we have a similar problem: powers of 2 have finite expansions, while 
 	     = 0.00011001… ₂
 Since our processors use binary floating point, we have to truncate (cut off) this representation, resulting in an imperfect approximation of 1/10.
 
-Exercise: use python to check this:
+**Exercise:** use python to check this:
 
 from decimal import Decimal
 
@@ -24,12 +24,12 @@ print(repr(Decimal(0.1)))
 should result in
 
 Decimal('0.1000000000000000055511151231257827021181583404541015625')
-Exercise: what is the best approximation of 0.01?
+##  what is the best approximation of 0.01?
 
 Read the Python floating point tutorial for more information on how this can apply to python.
 
 
-Linked lists
+## Linked lists
 
 Linked lists are data structures where each item is allocated individually, and is stored with a next reference (usually the memory address) of the next item. If next is null (a special value to indicate no address, typically the zero address), the end of the list has been reached.
 
@@ -56,19 +56,19 @@ Changing the size of a linked list is very cheap: to add, you find the two items
 	   --------------
 To delete, you update the "next" pointer of the previous item to match the "next" pointer of the deleted item.
 
-Exercise: use diagrams like the above to explain how to delete an item from a linked list.
+**Exercise:** use diagrams like the above to explain how to delete an item from a linked list.
 
 Linked lists can be upgraded in various ways; for example, a doubly-linked-list has next and previous pointers, so it can be traversed in either direction.
 
 The operation of adding an item to a linked list is called "insertion".
 
-Stacks, queues
+## Stacks, queues
 
 Stacks are a data structure in which items are visualised as being in a "stack": the only item accessible is the last item added; the only way to access earlier items is by removing the items added afterwards. The operation of adding to top of a stack is called "pushing", while removing from the top is called "popping". (The last item in the stack is called the "top".)
 
 Queues are the opposite: the only item accessible is the first item added; to access items added later, the first item must be removed. Adding to the head of the queue is called "enqueuing", and removing "dequeuing". (The first item of the queue is called the "head".)
 
-Trees
+## Trees
 
 Trees are the most obvious way to construct a hierarchy: a tree starts with an item (typically called the "root") and pointers to a number of other subordinate items. The subordinates are called "children"; each item is allowed to have children. In this way we can refer to parents, descendents, ancestors.
 
@@ -81,9 +81,9 @@ Here we have the root node R, with children A and B. R is the parent of A and B.
        X   Y   Z W
 There are many different types of trees: a tree is binary if every node has at most two children. If the items can be ordered (for example, they are numbers), then a binary search tree is a binary tree such that the value of a node is greater than every descendent to the left, and less than every descendent to the right. A binary search tree is balanced if for every node, the sizes of the left and right subtrees differ by at most one.
 
-Exercise: assemble the numbers 1-10 into binary search trees which are (a) maximally unbalanced to the left, (b) balanced, (c) one step from balanced.
+**Exercise:** assemble the numbers 1-10 into binary search trees which are (a) maximally unbalanced to the left, (b) balanced, (c) one step from balanced.
 
-Graphs
+## Graphs
 
 A graph is a non-hierarchical data structure admitting many-to-many relationships. The fundamental data of a graph is an unordered collection of items ("nodes" or "vertices"), and for each node a list of connections to other nodes ("edges").
 
@@ -107,22 +107,22 @@ A graph is called connected if every node has a path to every other node. (Wheth
 
 A cycle is a path which starts and end are the same. A graph which has no cycles is called acyclic.
 
-Exercise: assemble a directed acyclic graph with the numbers 1-12 by strict divisibility: an edge from A to B if B/A is prime. There are no directed cycles, but some nodes do have multiple paths to them. (These form cycles if you ignore the direction.) Which ones? Explain how to decide if a number will have multiple paths to it.
+**Exercise:** assemble a directed acyclic graph with the numbers 1-12 by strict divisibility: an edge from A to B if B/A is prime. There are no directed cycles, but some nodes do have multiple paths to them. (These form cycles if you ignore the direction.) Which ones? Explain how to decide if a number will have multiple paths to it.
 
 Every directed acyclic graph has at least one maximum spanning tree: a directed tree (i.e., arrows always point away from the root) inside the graph which touches every node.
 
-Exercise: Identify several maximal spanning trees in the divisibility graph from the previous exercise.
+**Exercise:** Identify several maximal spanning trees in the divisibility graph from the previous exercise.
 
-Exercise: model acquaintance using a graph (vertices are people, an edge between A and B means A knows B). Model it with a directed graph. How are these different?
+**Exercise:** model acquaintance using a graph (vertices are people, an edge between A and B means A knows B). Model it with a directed graph. How are these different?
 
 
-Hashing
+## Hashing
 
 Suppose you have transferred a large data file; how do you check there were no errors? A first strategy is to check the size: if they have the files have different sizes, an error definitely occurred.
 
 A more sophisticated strategy is to create a checksum: split the data into small pieces, interpreted as numbers, and add them all together. If the answers are the same, either the errors added to 0 (via overflow), or else the pieces are all the same.
 
-Exercise: this doesn't mean the file was transferred correctly; why not?
+**Exercise:** this doesn't mean the file was transferred correctly; why not?
 
 The topic of error detection codes is rich, and won't be covered here (though it is very important for the theoretical study of language!).
 
@@ -162,18 +162,18 @@ testfile2
 
 Notice that hashes are completely changed even though the file contents are nearly the same.
 
-Exercise: do the same for files with "cat" and "cat2" instead of "hi" and "hi2"
+**Exercise:** do the same for files with "cat" and "cat2" instead of "hi" and "hi2"
 
-Symmetric cryptography
+## Symmetric cryptography
 
 You might know cryptography in the sense of symmetric ciphers: there is a secret SEC. To encrypt a message M, called the cleartext, you apply a mathematical operation enc(SEC, M). The result is the ciphertext X.
 
 Anyone who knows the same secret SEC can apply a mathematical operation dec(SEC, X) to recreate the message, that is,
 
 dec(SEC, X) = dec(SEC, enc(SEC, M)) = M
-Exercise: implement the Caesar cipher in python, which advances each letter of 'M' by 'SEC = n': enc(1, "a") = "b", etc.
+**Exercise:** implement the Caesar cipher in python, which advances each letter of 'M' by 'SEC = n': enc(1, "a") = "b", etc.
 
-Asymmetric cryptography
+## Asymmetric cryptography
 
 Asymmetric cryptography works differently: there is a pair of related keys (numbers), for now call them A and B. Just like with symmetric cryptography, there is a mathematical operation RSA(key, x). The keys A and B have a special relationship: if a message is encrypted with A, it is decrypted by B, and vice-versa:
 
